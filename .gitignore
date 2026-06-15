@@ -1,0 +1,11 @@
+collect_data.py
+train_knn.py
+gesture_knn.pkl
+venv
+__pycache__/
+*.pyc
+venv/
+.env
+.vscode/
+.idea/
+gesture_data.csv
