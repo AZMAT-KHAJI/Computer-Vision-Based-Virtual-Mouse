@@ -89,7 +89,7 @@ pip install -r requirements.txt
 
 **3. Run the app**
 ```bash
-python main.py
+python hand_mouse.py
 ```
 
 > Make sure your webcam is connected and accessible before launching.
@@ -101,7 +101,7 @@ python main.py
 ```
 Computer-Vision-Based-Virtual-Mouse/
 │
-├── main.py                  # Application entry point
+├── hand_mouse.py                  # Application entry point
 ├── requirements.txt         # Python dependencies
 ├── README.md
 ```
