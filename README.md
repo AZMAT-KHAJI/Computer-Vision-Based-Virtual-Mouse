@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🖱️ Computer Vision–Based Virtual Mouse
+# Computer Vision–Based Virtual Mouse
 
 **Control your computer with nothing but your hand.**
 
@@ -15,7 +15,7 @@ A real-time, touchless human-computer interaction system powered by hand gesture
 
 ---
 
-## ✨ Features
+## Features
 
 - **Real-time hand tracking** via MediaPipe landmark detection
 - **Smooth cursor movement** using index finger position
@@ -25,20 +25,34 @@ A real-time, touchless human-computer interaction system powered by hand gesture
 
 ---
 
-## 🖐️ Supported Gestures
+## Supported Gestures
 
 | Gesture | Action |
 |---|---|
-| Index finger up | Move cursor |
-| Thumb–index pinch | Left click |
-| Thumb + index + middle | Right click |
-| Double pinch | Double click |
-| Pinch & hold | Drag and drop |
-| Two-finger gesture | Scroll up / down |
+| ☝️ Index finger only | Move cursor |
+| 🤏 Pinch (index only up) | Left click |
+| 🤏 Pinch + hold | Click and drag |
+| 🤏🤏 Pinch twice quickly | Double click |
+| ✌️ Index + middle, pinched | Right click |
+| ✌️ Index + middle, open | Scroll up/down |
+
 
 ---
 
-## 🛠️ Tech Stack
+
+### Keyboard controls
+ 
+| Key | Action |
+|---|---|
+| `q` / `Esc` | Quit |
+| `h` | Toggle on-screen overlay (landmarks, status text, FPS) |
+| `d` | Toggle debug numbers (live pinch ratio, finger states) — useful for tuning gestures to your own hand |
+
+
+---
+
+
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -48,9 +62,11 @@ A real-time, touchless human-computer interaction system powered by hand gesture
 | Gesture classification | Scikit-learn (KNN) |
 | Data handling | NumPy, Pandas |
 
+
 ---
 
-## ⚙️ System Workflow
+
+## System Workflow
 
 ```
 Webcam Feed
@@ -72,9 +88,10 @@ Mouse Action Mapping (PyAutoGUI)
 System Mouse Event
 ```
 
+
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 **1. Clone the repository**
 ```bash
@@ -94,30 +111,38 @@ python hand_mouse.py
 
 > Make sure your webcam is connected and accessible before launching.
 
+
 ---
 
-## 📁 Project Structure
+
+## Project Structure
 
 ```
 Computer-Vision-Based-Virtual-Mouse/
 │
-├── hand_mouse.py                  # Application entry point
+├── hand_mouse.py            # Application entry point
+├── test_gestures.py
 ├── requirements.txt         # Python dependencies
 ├── README.md
+
 ```
+
 
 ---
 
-## 💡 Use Cases
+
+## Use Cases
 
 - **Accessibility** — hands-free control for users with mobility limitations
 - **Touchless workstations** — hygiene-critical or sterile environments
 - **HCI research** — gesture-based interface experimentation
 - **Smart presentations** — navigate slides without a clicker
 
+
 ---
 
-## 🔭 Future Enhancements
+
+## Future Enhancements
 
 - [ ] Multi-hand gesture support
 - [ ] Custom gesture training UI
@@ -126,17 +151,23 @@ Computer-Vision-Based-Virtual-Mouse/
 - [ ] Virtual keyboard integration
 - [ ] Cross-platform optimization (macOS, Linux, Windows)
 
+
 ---
 
-## 👤 Developer
+
+## Developer
 
 **Azmat Khaji**
+
 GitHub: [@AZMAT-KHAJI](https://github.com/AZMAT-KHAJI)
+
+Linkedin: [@Azmat Khaji](https://www.linkedin.com/in/azmatkhaji)
+
 
 ---
 
 <div align="center">
 
-*Built with computer vision and ✋ a lot of hand-waving.*
+*Built with computer vision and a lot of hand-waving!*
 
 </div>
