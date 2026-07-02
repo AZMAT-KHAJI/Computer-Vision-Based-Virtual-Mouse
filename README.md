@@ -79,7 +79,7 @@ Finger Position & Feature Extraction
     │
     ▼
 Gesture Recognition
-(Rule-based logic  ──or──  KNN Classifier)
+(Rule-based logic  --or--  KNN Classifier)
     │
     ▼
 Mouse Action Mapping (PyAutoGUI)
@@ -133,10 +133,10 @@ Computer-Vision-Based-Virtual-Mouse/
 
 ## Use Cases
 
-- **Accessibility** — hands-free control for users with mobility limitations
-- **Touchless workstations** — hygiene-critical or sterile environments
-- **HCI research** — gesture-based interface experimentation
-- **Smart presentations** — navigate slides without a clicker
+- **Accessibility** - hands-free control for users with mobility limitations
+- **Touchless workstations** - hygiene-critical or sterile environments
+- **HCI research** - gesture-based interface experimentation
+- **Smart presentations** - navigate slides without a clicker
 
 
 ---
