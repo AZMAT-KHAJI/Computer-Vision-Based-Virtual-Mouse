@@ -1,6 +1,7 @@
 collect_data.py
 train_knn.py
 gesture_knn.pkl
+gesture_metrics.csv
 venv
 __pycache__/
 *.pyc
