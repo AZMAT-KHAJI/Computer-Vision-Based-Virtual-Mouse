@@ -70,10 +70,10 @@ class Config:
     # 'd' while running to see your live pinch ratio on screen, then adjust
     # these two numbers to match what you actually see (loosened from the
     # previous 0.45/0.65 since those were too strict).
-    pinch_close: float = 0.55   # ratio below this  = considered "pinched"
-    pinch_open: float = 0.75    # ratio above this  = considered "open"
+    pinch_close: float = 0.60   # ratio below this  = considered "pinched"
+    pinch_open: float = 0.70    # ratio above this  = considered "open"
     # (the gap between the two is a dead zone that prevents jitter)
-
+    shape_debounce_frames: int = 3  # how many consecutive frames a gesture must hold before acting on it
     click_double_window: float = 0.6    # max seconds between pinches to count as a double-click
     drag_hold_time: float = 0.35        # how long a pinch must be held before it becomes a drag
     right_click_cooldown: float = 0.6   # min seconds between right-clicks
@@ -491,3 +491,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
