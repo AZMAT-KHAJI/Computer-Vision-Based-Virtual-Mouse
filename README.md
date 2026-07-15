@@ -122,11 +122,15 @@ Computer-Vision-Based-Virtual-Mouse/
 │
 ├── hand_mouse.py            # Application entry point
 ├── test_gestures.py
+├── analyze_metrics.py    
+├── test_gestures_metrics.py #Testing the accuracy
 ├── requirements.txt         # Python dependencies
+├── reports                  #Accuracy Report daily
+    ├── Day1                 
+    ├── Day2
 ├── README.md
 
 ```
-
 
 ---
 
