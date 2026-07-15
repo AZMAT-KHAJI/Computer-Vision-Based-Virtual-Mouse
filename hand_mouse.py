@@ -70,12 +70,12 @@ class Config:
     # 'd' while running to see your live pinch ratio on screen, then adjust
     # these two numbers to match what you actually see (loosened from the
     # previous 0.45/0.65 since those were too strict).
-    pinch_close: float = 0.60   # ratio below this  = considered "pinched"
-    pinch_open: float = 0.70    # ratio above this  = considered "open"
+    pinch_close: float = 0.50   # ratio below this  = considered "pinched"
+    pinch_open: float = 0.65    # ratio above this  = considered "open"
     # (the gap between the two is a dead zone that prevents jitter)
-    shape_debounce_frames: int = 3  # how many consecutive frames a gesture must hold before acting on it
+    shape_debounce_frames: int = 5  # how many consecutive frames a gesture must hold before acting on it
     click_double_window: float = 0.6    # max seconds between pinches to count as a double-click
-    drag_hold_time: float = 0.35        # how long a pinch must be held before it becomes a drag
+    drag_hold_time: float = 0.25        # how long a pinch must be held before it becomes a drag
     right_click_cooldown: float = 0.6   # min seconds between right-clicks
     scroll_cooldown: float = 0.05       # min seconds between scroll ticks
     scroll_amount: int = 60
@@ -119,10 +119,11 @@ class HandDetector:
         frame — e.g. the middle finger naturally curls a bit while pinching
         thumb-to-index, which was causing LEFT CLICK / RIGHT CLICK to flicker.
         """
-        margin = 0.02  # normalized (0-1) units; tune up if flicker persists
-        fingers = [1 if landmarks[4].x < landmarks[3].x else 0]  # thumb (mirrored frame)
+        fingers = [1 if landmarks[4].x < landmarks[3].x else 0]
+
         for tip_id, pip_id in zip(HandDetector.TIP_IDS, HandDetector.PIP_IDS):
-            fingers.append(1 if landmarks[tip_id].y < landmarks[pip_id].y - margin else 0)
+            fingers.append(1 if landmarks[tip_id].y < landmarks[pip_id].y else 0)
+
         return fingers
 
     @staticmethod
@@ -200,7 +201,7 @@ class GestureController:
         self.shape_debounce_frames = 3
 
         pyautogui.PAUSE = 0
-        pyautogui.FAILSAFE = True
+        pyautogui.FAILSAFE = False
 
     def reset(self) -> None:
         """Called when no hand (or an unrecognized shape) is in frame, to avoid stuck states."""
@@ -251,7 +252,10 @@ class GestureController:
             self._handle_left_family(is_pinched, now, status)
 
         else:
-            self.reset()
+            # Give gestures a small grace period instead of immediately
+            # cancelling an active pinch/drag because of one bad frame.
+            if self.dragging:
+                return
 
     def _debounce_shape(self, raw_shape: str) -> str:
         """
